@@ -1,0 +1,288 @@
+.platform-index {
+  list-style: none;
+  margin: 0;
+  padding: clamp(28px, 5vw, 76px);
+  background: #fff;
+}
+
+.platform-index li {
+  border-bottom: 1px solid var(--rule);
+}
+
+.platform-index li:first-child {
+  border-top: 1px solid var(--rule);
+}
+
+.platform-index a {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr) minmax(180px, .45fr) 84px;
+  gap: 24px;
+  align-items: baseline;
+  padding: 23px 0;
+  transition: padding .35s cubic-bezier(.22, 1, .36, 1), background .35s;
+}
+
+.platform-index a:hover,
+.platform-index a:focus-visible {
+  padding-left: 12px;
+  background: #f8f7f5;
+  outline: none;
+}
+
+.platform-index span,
+.platform-index em,
+.platform-index b {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.platform-index strong {
+  font-size: clamp(28px, 3.2vw, 50px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -.06em;
+}
+
+.platform-index b {
+  text-align: right;
+}
+
+.case-gallery.has-platforms {
+  display: block;
+  padding: 0;
+}
+
+.platform-group {
+  padding: clamp(76px, 9vw, 140px) 0 clamp(70px, 8vw, 126px);
+  border-top: 2px solid var(--ink);
+}
+
+.platform-group > header {
+  min-height: 270px;
+  display: grid;
+  grid-template-columns: 7% minmax(0, 1fr) minmax(310px, .75fr);
+  gap: 28px;
+  align-items: end;
+  padding-bottom: 46px;
+}
+
+.platform-group > header > span {
+  align-self: start;
+  color: var(--muted);
+  font-size: 13px;
+  letter-spacing: 0;
+}
+
+.platform-group > header p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  letter-spacing: -.02em;
+}
+
+.platform-group > header div > p:first-child {
+  margin-bottom: 18px;
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: .01em;
+}
+
+.platform-group h3 {
+  max-width: 760px;
+  margin: 0;
+  font-size: clamp(52px, 6.3vw, 100px);
+  font-weight: 500;
+  line-height: .92;
+  letter-spacing: -.075em;
+}
+
+.platform-copy a {
+  display: inline-block;
+  margin-top: 28px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--ink);
+  font-size: 13px;
+  letter-spacing: -.02em;
+}
+
+.platform-copy a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.platform-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(42px, 5vw, 78px) 2vw;
+}
+
+.platform-grid figure {
+  min-width: 0;
+  margin: 0;
+}
+
+.platform-grid figure:first-child {
+  grid-column: 1 / -1;
+}
+
+.platform-image {
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 1px 0 rgba(17, 17, 17, .08);
+}
+
+.platform-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform .8s cubic-bezier(.22, 1, .36, 1);
+}
+
+.platform-grid figure:hover .platform-image img {
+  transform: scale(1.012);
+}
+
+.platform-grid figcaption {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 12px;
+  padding-top: 13px;
+  border-top: 1px solid var(--ink);
+  font-size: 12px;
+  letter-spacing: 0;
+}
+
+.platform-grid figcaption span {
+  color: var(--muted);
+}
+
+.platform-grid figcaption strong {
+  font-weight: 500;
+}
+
+.platform-group.is-website .platform-grid figure:first-child,
+.platform-group.is-website .platform-grid figure:nth-child(2) {
+  grid-column: 1 / -1;
+}
+
+.platform-group.is-mobile .platform-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(34px, 4vw, 64px) clamp(14px, 2vw, 32px);
+  align-items: start;
+}
+
+.platform-group.is-mobile .platform-grid figure:first-child {
+  grid-column: auto;
+}
+
+.platform-group.is-mobile .platform-image {
+  border-radius: 18px;
+  box-shadow: 0 16px 44px rgba(17, 17, 17, .09);
+}
+
+.platform-group.is-mobile .platform-grid figure:nth-child(even) {
+  margin-top: clamp(44px, 5vw, 82px);
+}
+
+@media (max-width: 900px) {
+  .platform-group.is-mobile .platform-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .platform-group.is-mobile .platform-grid figure:nth-child(even) {
+    margin-top: 0;
+  }
+
+  .platform-group.is-mobile .platform-grid figure:nth-child(3n + 2) {
+    margin-top: 44px;
+  }
+}
+
+@media (max-width: 700px) {
+  .platform-index {
+    padding: 22px 18px;
+  }
+
+  .platform-index a {
+    grid-template-columns: 34px minmax(0, 1fr) auto;
+    gap: 10px;
+    padding: 16px 0;
+  }
+
+  .platform-index strong {
+    font-size: 26px;
+  }
+
+  .platform-index em {
+    grid-column: 2;
+  }
+
+  .platform-index b {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  .platform-group {
+    padding: 58px 0 72px;
+  }
+
+  .platform-group > header {
+    min-height: 0;
+    display: block;
+    padding-bottom: 32px;
+  }
+
+  .platform-group > header > span {
+    display: block;
+    margin-bottom: 54px;
+  }
+
+  .platform-group h3 {
+    margin-bottom: 26px;
+    font-size: 15vw;
+  }
+
+  .platform-copy a {
+    margin-top: 20px;
+  }
+
+  .platform-grid,
+  .platform-group.is-mobile .platform-grid {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .platform-grid figure:first-child,
+  .platform-group.is-website .platform-grid figure:first-child,
+  .platform-group.is-website .platform-grid figure:nth-child(2),
+  .platform-group.is-mobile .platform-grid figure:first-child {
+    grid-column: auto;
+  }
+
+  .platform-group.is-mobile .platform-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 38px 12px;
+  }
+
+  .platform-group.is-mobile .platform-grid figure:nth-child(3n + 2),
+  .platform-group.is-mobile .platform-grid figure:nth-child(even) {
+    margin-top: 0;
+  }
+
+  .platform-group.is-mobile .platform-grid figure:nth-child(even) {
+    margin-top: 38px;
+  }
+
+  .platform-group.is-mobile .platform-image {
+    border-radius: 11px;
+  }
+
+  .platform-grid figcaption {
+    grid-template-columns: 28px 1fr;
+    gap: 7px;
+    font-size: 10px;
+  }
+}

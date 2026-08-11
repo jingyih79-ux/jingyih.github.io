@@ -1,0 +1,15 @@
+{
+  "name": "jingyi-portfolio",
+  "private": true,
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "packageManager": "pnpm@10.15.0",
+  "devDependencies": {
+    "vite": "latest"
+  }
+}
