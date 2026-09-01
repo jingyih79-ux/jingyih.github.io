@@ -17,6 +17,14 @@ const cases = {
     tags: ['官网体验', 'PC 工作台', 'App 移动端'],
     facts: [['项目类型', 'AI 数字员工'], ['设计范围', '官网 / PC / App'], ['设计重点', '核心任务闭环与多端一致性']],
     body: '从产品文档开始梳理信息架构与页面结构，再以对话、任务、数字员工、知识库和数据管理等核心场景建立跨端体验。公开案例聚焦面向客户的品牌官网，以及日常使用的 PC 与 App，呈现从产品认知到任务执行的连续体验。',
+    overall: {
+      index: '01',
+      eyebrow: '项目挑战 / 设计策略',
+      title: '让 AI 协作成为\n连续体验',
+      problem: '沈管家覆盖官网、PC 端与 App 端。用户需要从了解产品、下载体验，逐步进入发起任务、调用数字员工、查看进度与处理消息等环节。若功能入口、任务状态与交互逻辑在不同设备间不一致，跨端切换就会产生理解成本，也难以建立对 AI 数字员工的信任与掌控感。',
+      solution: '我以“任务闭环”而非单个页面作为设计主线，统一智能对话、任务、数字员工、知识库、日程与消息等核心能力的命名、状态和反馈逻辑。官网负责建立价值认知并引导体验；PC 端承载复杂工作与深度协作；App 端聚焦高频发起、即时处理与移动跟进。最终将分散能力串联为从产品认知、任务发起、AI 执行到结果追踪的连续体验。',
+      methods: ['跨端任务地图', '状态系统', '能力分层', '组件规范']
+    },
     images: [],
     projectLink: {
       href: 'https://www.butlershen.com',
@@ -155,7 +163,18 @@ document.querySelectorAll('.project').forEach((project) => {
     if (selectedCase.platforms) {
       caseCover.innerHTML = `<ol class="platform-index case-panel">${selectedCase.platforms.map((platform, index) => `<li><a href="#shen-platform-${index + 1}"><span>${String(index + 1).padStart(2, '0')}</span><strong>${platform.title}</strong><em>${platform.type}</em><b>${String(platform.images.length).padStart(2, '0')} 个界面</b></a></li>`).join('')}</ol>`;
       caseGallery.classList.add('has-platforms');
-      caseGallery.innerHTML = selectedCase.platforms.map((platform, index) => `
+      caseGallery.innerHTML = `${selectedCase.overall ? `
+        <section class="case-method case-panel" aria-label="${selectedCase.overall.eyebrow}">
+          <header>
+            <span>${selectedCase.overall.index}</span>
+            <div><p>${selectedCase.overall.eyebrow}</p><h3>${selectedCase.overall.title.replace('\\n', '<br>')}</h3></div>
+          </header>
+          <div class="case-method-grid">
+            <article><p class="case-method-label">Problem</p><p>${selectedCase.overall.problem}</p></article>
+            <article><p class="case-method-label">Solution</p><p>${selectedCase.overall.solution}</p></article>
+          </div>
+          <div class="case-method-tags">${selectedCase.overall.methods.map((method, index) => `<span><b>${String(index + 1).padStart(2, '0')}</b>${method}</span>`).join('')}</div>
+        </section>` : ''}${selectedCase.platforms.map((platform, index) => `
         <section class="platform-group${platform.layout ? ` is-${platform.layout}` : ''}" id="shen-platform-${index + 1}">
           <header>
             <span>${String(index + 1).padStart(2, '0')}</span>
@@ -167,7 +186,7 @@ document.querySelectorAll('.project').forEach((project) => {
               <div class="platform-image"><img src="${image.src}" alt="${platform.title} · ${image.label}" loading="lazy"></div>
               <figcaption><span>${String(imageIndex + 1).padStart(2, '0')}</span><strong>${image.label}</strong></figcaption>
             </figure>`).join('')}</div>
-        </section>`).join('');
+        </section>`).join('')}`;
     } else if (selectedCase.groups) {
       caseCover.innerHTML = `<ol class="concept-index case-panel">${selectedCase.groups.map((group, index) => `<li><span>${String(index + 1).padStart(2, '0')}</span><strong>${group.title}</strong><em>${group.type}</em></li>`).join('')}</ol>`;
       caseGallery.classList.add('has-groups');

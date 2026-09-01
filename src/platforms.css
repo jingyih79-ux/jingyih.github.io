@@ -55,6 +55,124 @@
   padding: 0;
 }
 
+.case-method {
+  padding: clamp(76px, 9vw, 140px) 0 clamp(70px, 8vw, 126px);
+  border-top: 2px solid var(--ink);
+}
+
+.case-method > header {
+  min-height: 300px;
+  display: grid;
+  grid-template-columns: 7% minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+  padding-bottom: 48px;
+}
+
+.case-method > header > span,
+.case-method > header p,
+.case-method-label,
+.case-method-tags b {
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: .01em;
+}
+
+.case-method > header p {
+  margin: 0 0 18px;
+}
+
+.case-method h3 {
+  margin: 0;
+  font-size: clamp(54px, 6.3vw, 102px);
+  font-weight: 500;
+  line-height: .92;
+  letter-spacing: -.08em;
+}
+
+.case-method-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(28px, 6vw, 110px);
+  margin-left: 7%;
+}
+
+.case-method-grid article {
+  border-top: 1px solid var(--ink);
+  padding-top: 14px;
+}
+
+.case-method-grid p:not(.case-method-label) {
+  margin: 30px 0 0;
+  font-size: clamp(17px, 1.65vw, 24px);
+  line-height: 1.52;
+  letter-spacing: -.04em;
+}
+
+.case-method-label {
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.case-method-tags {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: clamp(54px, 7vw, 106px) 0 0 7%;
+  border-top: 1px solid var(--rule);
+}
+
+.case-method-tags span {
+  display: grid;
+  gap: 34px;
+  padding-top: 14px;
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+@media (max-width: 700px) {
+  .case-method {
+    padding: 58px 0 72px;
+  }
+
+  .case-method > header {
+    min-height: 0;
+    display: block;
+    padding-bottom: 42px;
+  }
+
+  .case-method > header > span {
+    display: block;
+    margin-bottom: 54px;
+  }
+
+  .case-method h3 {
+    font-size: 15vw;
+  }
+
+  .case-method-grid {
+    grid-template-columns: 1fr;
+    gap: 42px;
+    margin-left: 0;
+  }
+
+  .case-method-grid p:not(.case-method-label) {
+    margin-top: 22px;
+    font-size: 18px;
+  }
+
+  .case-method-tags {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 12px;
+    margin: 54px 0 0;
+  }
+
+  .case-method-tags span {
+    gap: 18px;
+    font-size: 12px;
+  }
+}
+
 .platform-group {
   padding: clamp(76px, 9vw, 140px) 0 clamp(70px, 8vw, 126px);
   border-top: 2px solid var(--ink);
