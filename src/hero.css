@@ -110,9 +110,9 @@
 .about-copy {
   max-width: 1200px;
   margin-bottom: 8vw;
-  font-size: clamp(42px, 5.35vw, 82px);
-  line-height: 1.08;
-  letter-spacing: -.065em;
+  font-size: clamp(30px, 3.8vw, 58px);
+  line-height: 1.16;
+  letter-spacing: -.055em;
 }
 
 .about-grid {
@@ -199,8 +199,8 @@
 
   .about-copy {
     margin-bottom: 54px;
-    font-size: 10.5vw;
-    line-height: 1.12;
+    font-size: 8.2vw;
+    line-height: 1.18;
   }
 
   .about-grid {
@@ -220,5 +220,415 @@
 
   .about-grid p:nth-child(2n) {
     border-right: 0;
+  }
+}
+
+/* Homepage — Chinese adaptation of the selected editorial studio layout. */
+.site-header {
+  height: 86px;
+  padding: 0 2.35vw;
+  background: rgba(255, 255, 255, .96);
+}
+
+.brand {
+  font-size: clamp(17px, 1.45vw, 24px);
+  font-weight: 600;
+  letter-spacing: -.04em;
+}
+
+.brand span {
+  font-size: .42em;
+}
+
+nav {
+  gap: clamp(26px, 4vw, 76px);
+}
+
+nav a,
+.header-status {
+  font-size: clamp(13px, 1.05vw, 18px);
+  font-weight: 600;
+  letter-spacing: -.025em;
+}
+
+.header-status {
+  min-width: 64px;
+  color: var(--ink);
+  text-align: right;
+}
+
+.mono-hero {
+  min-height: calc(100svh - 86px);
+  padding: 0 2.35vw clamp(14px, 1.8vw, 32px);
+  display: grid;
+  grid-template-columns: 27% 1fr;
+  grid-template-rows: 1fr auto;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 0;
+  background-color: var(--paper);
+  background-image: none;
+}
+
+.mono-hero::before {
+  display: none;
+}
+
+.hero-index {
+  position: absolute;
+  top: clamp(34px, 5.2vw, 90px);
+  left: 2.35vw;
+  margin: 0;
+  color: #676767;
+  font-size: clamp(12px, .9vw, 15px);
+  letter-spacing: -.01em;
+}
+
+.hero-services {
+  align-self: start;
+  margin: clamp(46px, 5vw, 90px) 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: clamp(15px, 1.05vw, 20px);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -.015em;
+}
+
+.hero-cta {
+  width: min(430px, 30vw);
+  align-self: start;
+  justify-self: end;
+  margin: clamp(46px, 5vw, 90px) 0 0;
+  padding: 0;
+  border: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.hero-cta p {
+  align-self: stretch;
+  margin: 0;
+  font-size: clamp(19px, 1.5vw, 28px);
+  font-weight: 500;
+  line-height: 1.23;
+  letter-spacing: -.045em;
+}
+
+.hero-contact {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: clamp(8px, .7vw, 14px);
+  margin-left: auto;
+  padding: 15px 24px 16px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: #fff;
+  font-size: clamp(15px, 1.05vw, 19px);
+  font-weight: 500;
+  letter-spacing: -.02em;
+  box-shadow: 0 22px 24px rgba(17, 17, 17, .16);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.hero-contact:hover,
+.hero-contact:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 28px 30px rgba(17, 17, 17, .22);
+  outline: none;
+}
+
+.hero-contact span {
+  font-size: 1.12em;
+}
+
+.hero-credit {
+  position: absolute;
+  right: max(2.35vw, 28px);
+  bottom: clamp(164px, 14vw, 282px);
+  display: flex;
+  align-items: baseline;
+  gap: clamp(16px, 1.7vw, 30px);
+  margin: 0;
+  color: #8c8c8c;
+  font-size: clamp(12px, .9vw, 16px);
+  font-weight: 500;
+  letter-spacing: -.02em;
+}
+
+.hero-credit a { color: inherit; }
+.hero-credit a:hover { color: var(--ink); }
+
+.mono-hero .hero-title {
+  grid-column: 1 / -1;
+  width: 100%;
+  position: relative;
+  top: auto;
+  left: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  max-width: none;
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(96px, 12.4vw, 255px);
+  font-weight: 600;
+  line-height: .9;
+  letter-spacing: -.095em;
+  white-space: nowrap;
+}
+
+.mono-hero .hero-title span {
+  display: block;
+  transform: none;
+}
+
+.mono-hero .hero-title span:last-child {
+  margin-right: -.07em;
+  font-size: .83em;
+}
+
+@media (max-width: 700px) {
+  .site-header {
+    height: 64px;
+    padding: 0 18px;
+  }
+
+  nav {
+    display: none;
+  }
+
+  .header-status {
+    min-width: auto;
+  }
+
+  .mono-hero {
+    min-height: calc(100svh - 64px);
+    padding: 0 18px 18px;
+    display: block;
+    background-image: none;
+  }
+
+  .hero-index {
+    top: 28px;
+    left: 18px;
+  }
+
+  .hero-services {
+    margin-top: 32px;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .hero-cta {
+    width: min(310px, 78vw);
+    margin: 32px 0 0 auto;
+  }
+
+  .hero-cta p {
+    font-size: 20px;
+    line-height: 1.3;
+  }
+
+  .hero-contact {
+    margin-top: 25px;
+    padding: 13px 19px 14px;
+    box-shadow: 0 16px 20px rgba(17, 17, 17, .13);
+  }
+
+  .hero-credit {
+    right: 18px;
+    bottom: 152px;
+  }
+
+  .mono-hero .hero-title {
+    position: absolute;
+    right: 18px;
+    bottom: 18px;
+    left: 18px;
+    width: auto;
+    margin: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: end;
+    gap: 5px;
+    font-size: clamp(72px, 24vw, 112px);
+    line-height: .9;
+    letter-spacing: -.08em;
+  }
+
+  .mono-hero .hero-title span:last-child {
+    align-self: flex-end;
+    margin-right: -.05em;
+    font-size: .64em;
+  }
+}
+
+/* Right-side navigation panel */
+.menu-trigger {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.menu-overlay {
+  position: fixed;
+  z-index: 80;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 58% 42%;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.menu-overlay.is-open {
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.menu-backdrop {
+  border: 0;
+  padding: 0;
+  background: rgba(240, 240, 240, .76);
+  backdrop-filter: blur(14px);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity .42s ease;
+}
+
+.site-menu-panel {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  min-height: 100dvh;
+  padding: clamp(34px, 4vw, 78px) clamp(38px, 5.2vw, 100px);
+  flex-direction: column;
+  background: #050505;
+  color: #fff;
+  transform: translateX(100%);
+  transition: transform .62s cubic-bezier(.22, 1, .36, 1);
+}
+
+.menu-overlay.is-open .menu-backdrop {
+  opacity: 1;
+}
+
+.menu-overlay.is-open .site-menu-panel {
+  transform: translateX(0);
+}
+
+.menu-close {
+  align-self: flex-end;
+  border: 0;
+  padding: 0 0 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, .82);
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  font: 500 clamp(13px, 1vw, 17px)/1 inherit;
+  letter-spacing: -.02em;
+}
+
+.menu-links {
+  position: static;
+  left: auto;
+  transform: none;
+  display: flex;
+  margin: clamp(82px, 10vw, 180px) 0 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(18px, 2.15vw, 39px);
+}
+
+.menu-links a {
+  padding-bottom: 4px;
+  border-bottom: 1px solid rgba(255, 255, 255, .62);
+  color: #fff;
+  font-size: clamp(44px, 4.15vw, 82px);
+  font-weight: 500;
+  line-height: .94;
+  letter-spacing: -.06em;
+  transition: color .22s ease, transform .22s ease;
+}
+
+.menu-links a:hover,
+.menu-links a:focus-visible {
+  color: #bdbdbd;
+  transform: translateX(8px);
+  outline: none;
+}
+
+.menu-links span {
+  font-size: .45em;
+  vertical-align: top;
+  letter-spacing: -.02em;
+}
+
+.menu-contact-card {
+  margin: clamp(48px, 6vw, 100px) 0 clamp(26px, 3vw, 52px);
+  padding: 20px 22px;
+  border: 1px solid rgba(255, 255, 255, .22);
+  border-radius: 18px;
+  background: #151515;
+}
+
+.menu-contact-card p {
+  margin: 0 0 11px;
+  color: #d0d0d0;
+  font-size: clamp(13px, 1vw, 17px);
+  letter-spacing: -.02em;
+}
+
+.menu-contact-card a {
+  display: inline-flex;
+  gap: 12px;
+  align-items: center;
+  color: #fff;
+  font-size: clamp(17px, 1.35vw, 24px);
+  font-weight: 500;
+  letter-spacing: -.035em;
+}
+
+.menu-contact-card span {
+  font-size: 1.15em;
+}
+
+.menu-credit {
+  margin: auto 0 0;
+  color: #8d8d8d;
+  font-size: clamp(12px, .9vw, 15px);
+  line-height: 1.45;
+  letter-spacing: -.01em;
+}
+
+.menu-is-open {
+  overflow: hidden;
+}
+
+@media (max-width: 700px) {
+  .menu-overlay {
+    grid-template-columns: 12% 88%;
+  }
+
+  .site-menu-panel {
+    padding: 28px 26px;
+  }
+
+  .menu-links {
+    margin-top: 80px;
+    gap: 20px;
+  }
+
+  .menu-links a {
+    font-size: clamp(38px, 12vw, 58px);
+  }
+
+  .menu-contact-card {
+    padding: 17px;
+    border-radius: 14px;
   }
 }

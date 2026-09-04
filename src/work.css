@@ -1,0 +1,190 @@
+/* Homepage work gallery — editorial sticky rail with scroll-stacked projects. */
+.work {
+  display: grid;
+  grid-template-columns: minmax(210px, 28.5%) minmax(0, 1fr);
+  gap: clamp(32px, 6vw, 112px);
+  align-items: start;
+  padding: clamp(54px, 7vw, 124px) 2.35vw clamp(112px, 14vw, 240px);
+  background: #f7f7f6;
+}
+
+.work-rail {
+  position: sticky;
+  top: clamp(106px, 10vw, 156px);
+  min-height: min(54vw, 700px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.work-kicker {
+  margin: 0 0 clamp(34px, 5vw, 78px);
+  color: #5e5e5e;
+  font-size: clamp(12px, .92vw, 16px);
+  font-weight: 400;
+  letter-spacing: -.02em;
+}
+
+.work .section-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-start;
+  gap: .22em;
+  margin: 0;
+}
+
+.work .section-heading h2 {
+  font-size: clamp(56px, 6.15vw, 112px);
+  font-weight: 500;
+  line-height: .88;
+  letter-spacing: -.085em;
+}
+
+.work .section-heading span {
+  color: var(--ink);
+  font-size: clamp(22px, 2vw, 38px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -.06em;
+}
+
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(10vh, 17vw, 270px);
+  padding-bottom: clamp(12vh, 18vw, 280px);
+}
+
+.work .project {
+  position: sticky;
+  top: clamp(104px, 10vw, 152px);
+  display: block;
+  min-height: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: clamp(10px, .9vw, 18px);
+  background: #151515;
+  box-shadow: 0 14px 38px rgba(0, 0, 0, .08);
+  isolation: isolate;
+  transform: none;
+}
+
+.work .project:nth-child(2) { top: clamp(116px, 11vw, 168px); }
+.work .project:nth-child(3) { top: clamp(128px, 12vw, 184px); }
+.work .project:nth-child(4) { top: clamp(140px, 13vw, 200px); }
+.work .project:nth-child(5) { top: clamp(152px, 14vw, 216px); }
+
+.work .project.reveal,
+.work .project.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.work .project:hover { background: #151515; }
+
+.work .project-media {
+  display: block;
+  width: 100%;
+  height: clamp(370px, 45vw, 720px);
+  margin: 0;
+  overflow: hidden;
+  background: #151515;
+  transform: none;
+}
+
+.work .project-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.001);
+  transition: transform .9s cubic-bezier(.22, 1, .36, 1), filter .5s;
+}
+
+.work .project:nth-child(3) .project-media img,
+.work .project:nth-child(4) .project-media img {
+  object-position: center top;
+}
+
+.work .project-number {
+  position: absolute;
+  z-index: 2;
+  top: 18px;
+  left: 20px;
+  margin: 0;
+  color: rgba(255, 255, 255, .9);
+  font-size: 12px;
+  letter-spacing: .02em;
+  mix-blend-mode: difference;
+}
+
+.work .project-meta {
+  position: absolute;
+  z-index: 2;
+  right: 16px;
+  bottom: 16px;
+  max-width: min(82%, 420px);
+  padding: 11px 14px 10px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, .94);
+  color: var(--ink);
+  transform: none;
+  transition: transform .45s cubic-bezier(.22, 1, .36, 1), background .35s;
+}
+
+.work .project-meta h3 {
+  margin: 0 0 3px;
+  font-size: clamp(17px, 1.5vw, 26px);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -.065em;
+}
+
+.work .project-meta p {
+  max-width: none;
+  margin: 0;
+  color: #606060;
+  font-size: clamp(11px, .82vw, 14px);
+  line-height: 1.35;
+  letter-spacing: -.02em;
+}
+
+.work .project-arrow { display: none; }
+
+.work .project:hover .project-media { transform: none; }
+.work .project:hover .project-media img { transform: scale(1.045); }
+.work .project:hover .project-meta { transform: translateY(-5px); background: #fff; }
+
+@media (max-width: 700px) {
+  .work {
+    display: block;
+    padding: 48px 18px 96px;
+  }
+
+  .work-rail {
+    position: static;
+    min-height: 0;
+    margin-bottom: 34px;
+  }
+
+  .work-kicker { margin-bottom: 28px; font-size: 13px; }
+  .work .section-heading h2 { font-size: 64px; }
+  .work .section-heading span { font-size: 25px; }
+  .project-list { gap: 32px; padding-bottom: 0; }
+
+  .work .project,
+  .work .project:nth-child(n) {
+    position: relative;
+    top: auto;
+  }
+
+  .work .project-media { height: min(74vw, 460px); }
+  .work .project-number { top: 13px; left: 14px; }
+  .work .project-meta { right: 10px; bottom: 10px; padding: 9px 11px 8px; }
+  .work .project-meta h3 { font-size: 17px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .work .project-media img,
+  .work .project-meta,
+  .work-all { transition: none; }
+}

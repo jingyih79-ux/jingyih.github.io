@@ -1,0 +1,614 @@
+/* Case detail — two-column editorial project sheet. */
+dialog {
+  padding: 0;
+  scroll-behavior: smooth;
+  background-color: #f6f5f2;
+  background-image: linear-gradient(to right, rgba(17, 17, 17, .055) 1px, transparent 1px);
+  background-size: 16.6667% 100%;
+}
+
+.case-topbar {
+  height: 82px;
+  padding: 0 clamp(22px, 4.25vw, 84px);
+  border-bottom: 1px solid rgba(17, 17, 17, .14);
+  background: rgba(246, 245, 242, .9);
+  font-size: 12px;
+}
+
+.case-detail-layout {
+  display: grid;
+  grid-template-columns: minmax(290px, .84fr) minmax(0, 1.16fr);
+  max-width: 1270px;
+  min-height: calc(100dvh - 82px);
+  margin: 0 auto;
+  border-right: 1px solid rgba(17, 17, 17, .08);
+  border-left: 1px solid rgba(17, 17, 17, .08);
+}
+
+.case-sidebar {
+  align-self: stretch;
+  min-height: 0;
+  padding: clamp(58px, 6vw, 104px) clamp(24px, 3.2vw, 58px) clamp(82px, 9vw, 154px);
+  border-right: 1px solid rgba(17, 17, 17, .1);
+}
+
+.case-sidebar-opening {
+  display: flex;
+  min-height: clamp(570px, 52vw, 820px);
+  flex-direction: column;
+}
+
+.case-sidebar-facts { margin-top: auto; }
+
+dialog[data-case] .case-intro,
+.case-intro {
+  display: block;
+  min-height: 0;
+  padding: 0 0 clamp(58px, 7vw, 112px);
+  border: 0;
+}
+
+.case-kicker {
+  margin: 0 0 clamp(34px, 4vw, 64px);
+  color: #747474;
+  font-size: 12px;
+  letter-spacing: -.01em;
+}
+
+dialog[data-case] .case-intro h2,
+.case-intro h2,
+dialog[data-case="shen"] .case-intro h2 {
+  max-width: none;
+  margin: 0;
+  font-size: clamp(34px, 3.2vw, 58px);
+  font-weight: 600;
+  line-height: .96;
+  letter-spacing: -.08em;
+  white-space: normal;
+}
+
+.case-sidebar .case-facts,
+.case-sidebar .case-tags {
+  display: block;
+  margin: 0;
+  border-top: 1px solid rgba(17, 17, 17, .12);
+}
+
+.case-sidebar .case-facts div,
+.case-sidebar .case-tags {
+  display: block;
+  padding: 15px 0;
+  border-bottom: 0;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.case-sidebar .case-facts div + div { padding-top: 0; }
+.case-sidebar .case-facts span,
+.case-sidebar .case-tags span {
+  display: block;
+  margin-bottom: 3px;
+  color: #777;
+}
+
+.case-sidebar .case-facts strong,
+.case-sidebar .case-tags strong {
+  display: block;
+  color: #222;
+  font-weight: 400;
+}
+
+.case-sidebar .case-body {
+  margin-top: clamp(38px, 4.5vw, 76px);
+  color: #3f3f3f;
+  font-size: clamp(14px, 1.05vw, 17px);
+  line-height: 1.68;
+  letter-spacing: -.025em;
+}
+
+.case-detail-notes {
+  /* Align the first left narrative block with the first numbered image group. */
+  margin-top: clamp(104px, 13vw, 198px);
+}
+
+.case-detail-notes section {
+  min-height: clamp(170px, 14vw, 242px);
+  padding: 0 0 clamp(42px, 4vw, 68px);
+  border: 0;
+}
+
+/* The reference scroll is intentionally quiet: each new story block rises into
+   view with the same short, low-contrast motion as the image column. */
+.case-copy-panel {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 620ms cubic-bezier(.22, 1, .36, 1) var(--reveal-delay, 0ms),
+    transform 620ms cubic-bezier(.22, 1, .36, 1) var(--reveal-delay, 0ms);
+}
+
+.case-copy-panel.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.case-detail-notes h3 {
+  margin: 0 0 clamp(16px, 1.25vw, 24px);
+  color: #111;
+  font-size: clamp(20px, 1.55vw, 29px);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -.055em;
+}
+
+.case-detail-notes p {
+  margin: 0;
+  color: #7a7a7a;
+  font-size: clamp(13px, .92vw, 16px);
+  line-height: 1.42;
+  letter-spacing: -.02em;
+}
+
+.case-research-copy {
+  display: grid;
+  gap: 14px;
+}
+
+.case-chapter-experience[hidden] { display: none; }
+
+.case-chapter-experience {
+  position: sticky;
+  top: 110px;
+  display: flex;
+  min-height: min(720px, calc(100dvh - 140px));
+  flex-direction: column;
+  margin-top: clamp(48px, 5vw, 78px);
+  padding: 24px 0 28px;
+  border-top: 1px solid rgba(17, 17, 17, .14);
+  border-bottom: 1px solid rgba(17, 17, 17, .14);
+}
+
+.case-chapter-copy {
+  display: grid;
+}
+
+.case-chapter-copy-item {
+  grid-area: 1 / 1;
+  min-height: 340px;
+  padding: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(14px);
+  transition:
+    opacity 360ms cubic-bezier(.22, 1, .36, 1),
+    transform 360ms cubic-bezier(.22, 1, .36, 1),
+    visibility 0s linear 360ms;
+}
+
+.case-chapter-copy-item.is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition-delay: 70ms, 70ms, 0s;
+}
+
+.case-chapter-heading {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr);
+  gap: 10px;
+  margin-bottom: 18px;
+  color: #777;
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.case-chapter-heading p { color: inherit; font-size: inherit; line-height: inherit; }
+
+.case-chapter-copy-item h3 {
+  margin: 0 0 20px;
+  color: #111;
+  font-size: clamp(22px, 1.75vw, 31px);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -.055em;
+}
+
+.case-chapter-paragraphs {
+  display: grid;
+  gap: 11px;
+}
+
+.case-chapter-paragraphs p,
+.case-chapter-focus p {
+  margin: 0;
+  color: #747474;
+  font-size: clamp(12px, .83vw, 14px);
+  line-height: 1.48;
+  letter-spacing: -.018em;
+}
+
+.case-chapter-focus {
+  margin-top: 20px;
+}
+
+.case-chapter-focus span,
+.case-chapter-nav-label {
+  display: block;
+  margin: 0 0 7px;
+  color: #999;
+  font-size: 10px;
+  line-height: 1.3;
+  letter-spacing: .02em;
+}
+
+.case-chapter-focus p { color: #333; }
+
+.case-chapter-project-link {
+  display: inline-block;
+  margin-top: 16px;
+  padding-bottom: 3px;
+  border-bottom: 1px solid #111;
+  color: #111;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.case-chapter-project-link:hover { color: #777; border-color: #777; }
+
+.case-chapter-nav {
+  position: static;
+  top: auto;
+  left: auto;
+  display: block;
+  gap: 0;
+  margin-top: auto;
+  transform: none;
+}
+
+.case-chapter-nav-group {
+  border-top: 1px solid rgba(17, 17, 17, .11);
+}
+
+.case-chapter-nav-main {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr);
+  gap: 10px;
+  padding: 10px 0 9px;
+  color: #9a9a9a;
+  font-size: 11px;
+  line-height: 1.35;
+  transition: color 220ms ease;
+}
+
+.case-chapter-nav-main strong { font-weight: 400; }
+
+.case-chapter-nav-children {
+  display: grid;
+  gap: 6px;
+  padding: 0 0 11px 42px;
+}
+
+.case-chapter-nav-children a {
+  color: #aaa;
+  font-size: 10px;
+  line-height: 1.35;
+  transition: color 220ms ease;
+}
+
+.case-chapter-nav a:hover,
+.case-chapter-nav a.is-active { color: #111; }
+
+.case-chapter-nav a:focus-visible {
+  outline: 1px solid #777;
+  outline-offset: 3px;
+}
+
+[data-case-chapter] { scroll-margin-top: 112px; }
+
+.case-feature-list {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  color: #7a7a7a;
+  font-size: clamp(13px, .92vw, 16px);
+  line-height: 1.42;
+  letter-spacing: -.02em;
+  list-style: none;
+}
+
+.case-feature-list li {
+  position: relative;
+  padding-left: 15px;
+}
+
+.case-feature-list li::before {
+  position: absolute;
+  top: .62em;
+  left: 0;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #888;
+  content: '';
+}
+
+.case-sidebar .case-action {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: clamp(38px, 4.5vw, 72px);
+  padding: 14px 0 0;
+  border-top: 1px solid rgba(17, 17, 17, .12);
+  font-size: 12px;
+}
+
+.case-sidebar .case-action[hidden] { display: none; }
+
+.case-action .case-project-link { margin-right: auto; }
+
+.case-visual-column {
+  min-width: 0;
+  padding: clamp(76px, 9vw, 154px) clamp(24px, 4.1vw, 76px) clamp(92px, 12vw, 180px);
+}
+
+dialog[data-case] .case-summary,
+.case-summary {
+  max-width: 680px;
+  margin: 0 0 clamp(52px, 6vw, 104px);
+  padding: 0;
+  color: #5a5a5a;
+  font-size: clamp(18px, 1.55vw, 25px);
+  font-weight: 500;
+  line-height: 1.22;
+  letter-spacing: -.055em;
+}
+
+dialog#case-study[data-case] .case-summary { border-bottom: 0; }
+
+dialog[data-case] .case-summary::before,
+.case-summary::before { display: none; }
+
+.case-cover {
+  min-height: 0;
+  background: transparent;
+}
+
+.case-opening-image,
+.case-cover > img {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: #fff;
+  cursor: zoom-in;
+}
+
+.case-cover .case-highlights,
+.case-cover .concept-index {
+  margin-top: clamp(34px, 4vw, 58px);
+}
+
+.case-visual-column .case-gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(32px, 5vw, 74px);
+  padding: clamp(40px, 5vw, 78px) 0 0;
+}
+
+.case-visual-column .case-gallery > img,
+.case-visual-column .case-gallery img {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: #fff;
+  cursor: zoom-in;
+}
+
+.image-lightbox {
+  width: 100vw;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: clamp(54px, 6vw, 104px) clamp(20px, 5vw, 90px) clamp(28px, 3vw, 54px);
+  overflow: hidden;
+  border: 0;
+  background: rgba(10, 10, 10, .97);
+  color: #fff;
+}
+
+.image-lightbox::backdrop { background: rgba(0, 0, 0, .72); }
+
+.image-lightbox[open] {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  place-items: center;
+}
+
+.image-lightbox img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.image-lightbox p {
+  margin: 16px 0 0;
+  color: rgba(255, 255, 255, .72);
+  font-size: 12px;
+  letter-spacing: -.02em;
+}
+
+.image-lightbox-close {
+  position: absolute;
+  top: 22px;
+  right: clamp(20px, 4vw, 66px);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font: 500 13px/1 inherit;
+  cursor: pointer;
+}
+
+.image-lightbox-close:hover,
+.image-lightbox-close:focus-visible { color: #bbb; outline: none; }
+
+.case-visual-column .case-gallery.has-groups,
+.case-visual-column .case-gallery.has-platforms { display: block; }
+
+.case-visual-column .case-gallery .case-method,
+.case-visual-column .case-gallery .platform-group {
+  padding-top: clamp(64px, 8vw, 120px);
+}
+
+/* Avoid the older, more pronounced global panel transition inside cases. */
+dialog#case-study .case-panel {
+  transform: translateY(24px);
+  transition:
+    opacity 620ms cubic-bezier(.22, 1, .36, 1) var(--reveal-delay, 0ms),
+    transform 620ms cubic-bezier(.22, 1, .36, 1) var(--reveal-delay, 0ms);
+}
+
+dialog#case-study .case-panel.is-visible { transform: translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  dialog { scroll-behavior: auto; }
+  .case-copy-panel,
+  dialog#case-study .case-panel {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+.case-visual-column .platform-group > header {
+  min-height: 0;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+  padding-bottom: 30px;
+}
+
+/* Hierarchy mirrors the requested labels: numbered platform families lead,
+   and device-level collections act as compact sublabels. */
+.case-visual-column .platform-group > header div > p:first-child {
+  margin: 0;
+  color: #111;
+  font-size: clamp(26px, 2.7vw, 42px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -.07em;
+}
+
+.case-visual-column .platform-collection h4 {
+  margin: 0;
+  color: #747474;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: .01em;
+}
+
+/* Shen App phone screens: a compact three-column waterfall-like image wall. */
+.platform-group.is-toc .platform-collection:first-child .platform-grid {
+  display: grid;
+  grid-auto-flow: row;
+  grid-auto-columns: auto;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(20px, 2.2vw, 38px) clamp(12px, 1.4vw, 24px);
+  overflow: visible;
+  overscroll-behavior-inline: auto;
+  scroll-snap-type: none;
+  touch-action: auto;
+  padding-bottom: 0;
+}
+
+.platform-group.is-toc .platform-collection:first-child .platform-grid figure {
+  min-width: 0;
+  scroll-snap-align: none;
+}
+
+/* Little E uses landscape process boards. A calm single-column rhythm keeps
+   each flow legible while the left-hand narrative changes by chapter. */
+dialog[data-case="little-e"] .case-summary {
+  font-size: clamp(16px, 1.18vw, 20px);
+  line-height: 1.34;
+  letter-spacing: -.035em;
+}
+
+dialog[data-case="little-e"] .platform-grid {
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(36px, 4.8vw, 70px);
+}
+
+dialog[data-case="little-e"] .platform-grid figure,
+dialog[data-case="little-e"] .platform-grid figure:first-child {
+  grid-column: auto;
+}
+
+dialog[data-case="little-e"] .platform-image {
+  border: 1px solid rgba(17, 17, 17, .07);
+  box-shadow: none;
+}
+
+dialog[data-case="little-e"] .platform-group > header div > p:first-child {
+  max-width: 520px;
+}
+
+.case-footer {
+  max-width: 1270px;
+  margin: 0 auto;
+  padding: 22px clamp(24px, 4vw, 76px) 32px;
+  border-top: 1px solid rgba(17, 17, 17, .14);
+  color: #555;
+}
+
+@media (max-width: 700px) {
+  dialog { background-size: 25% 100%; }
+  .case-topbar { height: 62px; padding: 0 18px; }
+  .case-detail-layout { display: block; min-height: 0; border: 0; }
+  .case-sidebar { position: static; min-height: 0; padding: 44px 18px 46px; border-right: 0; border-bottom: 1px solid rgba(17, 17, 17, .12); }
+  .case-sidebar-opening { min-height: 0 !important; }
+  dialog[data-case] .case-intro,
+  .case-intro { padding-bottom: 56px; }
+  dialog[data-case] .case-intro h2,
+  .case-intro h2,
+  dialog[data-case="shen"] .case-intro h2 { font-size: 13vw; }
+  .case-visual-column { padding: 52px 18px 76px; }
+  dialog[data-case] .case-summary,
+  .case-summary { margin-bottom: 46px; font-size: 25px; }
+  .case-sidebar .case-body { font-size: 15px; }
+  .case-detail-notes { margin-top: 46px; }
+  .case-detail-notes section { min-height: 0; padding-bottom: 44px; }
+  .case-detail-notes h3 { font-size: 22px; margin-bottom: 14px; }
+  .case-detail-notes p { font-size: 14px; line-height: 1.55; }
+  .case-feature-list { font-size: 14px; line-height: 1.55; }
+  .case-research-copy { gap: 12px; }
+  .case-chapter-experience {
+    position: static;
+    min-height: 0;
+    margin-top: 26px;
+    padding-bottom: 0;
+  }
+  .case-chapter-copy { display: block; }
+  .case-chapter-copy-item,
+  .case-chapter-copy-item.is-active {
+    min-height: 0;
+    padding: 0 0 46px;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition: none;
+  }
+  .case-chapter-copy-item h3 { font-size: 24px; }
+  .case-chapter-paragraphs p,
+  .case-chapter-focus p { font-size: 14px; line-height: 1.55; }
+  .case-chapter-nav { order: -1; margin: 0 0 46px; }
+  .platform-group.is-toc .platform-collection:first-child .platform-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  dialog[data-case="little-e"] .case-summary { font-size: 18px; line-height: 1.45; }
+  dialog[data-case="little-e"] .platform-grid { grid-template-columns: 1fr; }
+  .case-sidebar .case-action { display: flex; }
+}

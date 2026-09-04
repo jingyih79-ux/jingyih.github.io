@@ -404,3 +404,531 @@
     font-size: 10px;
   }
 }
+
+/* Shen case study — editorial system page */
+dialog[data-case="shen"] {
+  --accent: #ff7623;
+  background-color: #fafaf8;
+  background-image: linear-gradient(to right, rgba(17, 17, 17, .055) 1px, transparent 1px);
+}
+
+dialog[data-case="shen"] .case-topbar {
+  background: rgba(250, 250, 248, .94);
+}
+
+dialog[data-case="shen"] .case-intro {
+  min-height: clamp(440px, 49vw, 660px);
+  grid-template-columns: minmax(0, 1.08fr) minmax(360px, .92fr);
+  gap: 8vw;
+  align-items: start;
+  padding: clamp(30px, 3vw, 54px) 0 38px;
+}
+
+dialog[data-case="shen"] .case-kicker {
+  margin: 0 0 clamp(28px, 3vw, 52px);
+}
+
+dialog[data-case="shen"] .case-intro h2 {
+  max-width: none;
+  font-size: clamp(78px, 9.1vw, 164px);
+  line-height: .82;
+  letter-spacing: -.12em;
+  white-space: normal;
+}
+
+dialog[data-case="shen"] .case-summary {
+  max-width: 540px;
+  margin: clamp(162px, 16vw, 252px) 0 12px;
+  padding: 0 0 34px;
+  border-bottom: 1px solid var(--ink);
+  font-size: clamp(28px, 3.25vw, 54px);
+  font-weight: 500;
+  line-height: 1.16;
+  letter-spacing: -.075em;
+}
+
+dialog[data-case="shen"] .case-summary::before {
+  top: auto;
+  bottom: -3px;
+  left: 0;
+  width: 52px;
+  height: 5px;
+  border-radius: 0;
+  background: var(--accent);
+}
+
+.case-highlights {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-bottom: 1px solid var(--rule);
+}
+
+.case-highlights article {
+  min-height: 156px;
+  padding: 22px 28px 26px 0;
+  border-right: 1px solid var(--rule);
+}
+
+.case-highlights article + article {
+  padding-left: 28px;
+}
+
+.case-highlights article:last-child {
+  border-right: 0;
+}
+
+.case-highlights strong {
+  display: block;
+  font-size: clamp(21px, 2vw, 32px);
+  font-weight: 500;
+  letter-spacing: -.06em;
+}
+
+.case-highlights p {
+  max-width: 260px;
+  margin: 18px 0 0;
+  color: #555;
+  font-size: 13px;
+  line-height: 1.55;
+  letter-spacing: -.02em;
+}
+
+dialog[data-case="shen"] .case-story {
+  min-height: 0;
+  padding-top: clamp(72px, 8vw, 128px);
+}
+
+dialog[data-case="shen"] .case-body {
+  font-size: clamp(22px, 2.25vw, 36px);
+  line-height: 1.47;
+}
+
+dialog[data-case="shen"] .case-method {
+  border-top-width: 1px;
+}
+
+dialog[data-case="shen"] .case-method > header {
+  min-height: 248px;
+}
+
+dialog[data-case="shen"] .case-method h3 {
+  font-size: clamp(56px, 6vw, 106px);
+}
+
+dialog[data-case="shen"] .case-method-grid article:first-child {
+  border-color: var(--accent);
+}
+
+dialog[data-case="shen"] .case-method-tags b {
+  color: var(--accent);
+}
+
+.delivery-index {
+  padding: clamp(72px, 8vw, 124px) 0;
+  border-top: 1px solid var(--ink);
+}
+
+.delivery-index-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 36px;
+}
+
+.delivery-index-heading p {
+  margin: 0;
+  font-size: clamp(31px, 3.15vw, 53px);
+  font-weight: 500;
+  letter-spacing: -.07em;
+}
+
+.delivery-index-heading span {
+  max-width: 290px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.delivery-index ol {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.delivery-index li + li {
+  border-left: 1px solid var(--rule);
+}
+
+.delivery-index a {
+  display: flex;
+  min-height: 228px;
+  padding: 20px 24px 22px;
+  flex-direction: column;
+  transition: background .28s ease, color .28s ease;
+}
+
+.delivery-index a:hover,
+.delivery-index a:focus-visible {
+  color: var(--accent);
+  background: #fff;
+  outline: none;
+}
+
+.delivery-index span,
+.delivery-index em,
+.delivery-index b {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.delivery-index strong {
+  max-width: 260px;
+  margin: auto 0 10px;
+  font-size: clamp(24px, 2.4vw, 40px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -.07em;
+}
+
+.delivery-index b {
+  margin-top: 20px;
+}
+
+.platform-group.is-toc .platform-grid {
+  grid-template-columns: minmax(0, .78fr) minmax(0, 1.22fr);
+  gap: clamp(36px, 5vw, 72px) 2.2vw;
+}
+
+.platform-group.is-toc .platform-grid figure:first-child {
+  grid-column: auto;
+}
+
+.platform-group.is-toc .platform-grid figure:nth-child(odd) {
+  margin-top: clamp(46px, 6vw, 96px);
+}
+
+.platform-group.is-toc .platform-image {
+  background: #f6f6f4;
+}
+
+.platform-group.is-backend .platform-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(34px, 4.5vw, 72px) 2vw;
+}
+
+.platform-group.is-backend .platform-grid figure:first-child {
+  grid-column: auto;
+}
+
+.platform-group.is-backend .platform-image {
+  border: 1px solid rgba(17, 17, 17, .08);
+  box-shadow: none;
+}
+
+.platform-group.is-backend .platform-grid figure:nth-child(even) {
+  margin-top: 0;
+}
+
+.platform-group.is-backend .platform-grid figcaption {
+  border-color: var(--rule);
+}
+
+.platform-group.is-toc .platform-collections {
+  display: grid;
+  gap: clamp(72px, 9vw, 136px);
+}
+
+.platform-group.is-toc .platform-collection {
+  border-top: 1px solid var(--rule);
+  padding-top: 18px;
+}
+
+.platform-collection > header {
+  display: flex;
+  justify-content: space-between;
+  gap: 28px;
+  margin-bottom: 26px;
+}
+
+.platform-collection h4 {
+  margin: 0;
+  font-size: clamp(26px, 2.7vw, 42px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -.07em;
+}
+
+.platform-collection p {
+  max-width: 320px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* Each device family remains a single horizontal row: phone screens and desktop screens never mix. */
+.platform-group.is-toc .platform-collection .platform-grid {
+  display: grid;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  grid-auto-flow: column;
+  grid-auto-columns: clamp(132px, 13vw, 180px);
+  grid-template-columns: none;
+  gap: clamp(14px, 1.8vw, 28px);
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-inline: contain;
+  scroll-snap-type: inline mandatory;
+  touch-action: pan-x;
+  padding-bottom: 12px;
+  scrollbar-color: var(--rule) transparent;
+}
+
+/* Keep the editorial layout fixed; only the image rails are allowed to overflow horizontally. */
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+dialog {
+  max-width: 100vw;
+  overflow-x: clip;
+  overflow-y: auto;
+}
+
+dialog[data-case="shen"] .case-gallery,
+dialog[data-case="shen"] .platform-group,
+dialog[data-case="shen"] .platform-collections,
+dialog[data-case="shen"] .platform-collection {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.platform-group.is-toc .platform-collection .platform-grid figure,
+.platform-group.is-toc .platform-collection .platform-grid figure:first-child,
+.platform-group.is-toc .platform-collection .platform-grid figure:nth-child(odd) {
+  grid-column: auto;
+  margin-top: 0;
+  scroll-snap-align: start;
+}
+
+.platform-group.is-toc .platform-collection .platform-image {
+  aspect-ratio: 375 / 812;
+  border-radius: 12px;
+  background: #f6f6f4;
+  box-shadow: 0 12px 30px rgba(17, 17, 17, .08);
+}
+
+.platform-group.is-toc .platform-collection .platform-image img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.platform-group.is-toc .platform-collection:nth-child(2) .platform-grid {
+  grid-auto-columns: minmax(620px, 56vw);
+  gap: clamp(22px, 2.6vw, 42px);
+}
+
+.platform-group.is-toc .platform-collection:nth-child(2) .platform-image {
+  aspect-ratio: 16 / 10;
+  border-radius: 0;
+  box-shadow: 0 1px 0 rgba(17, 17, 17, .08);
+}
+
+.platform-group.is-backend .platform-grid figure:first-child {
+  grid-column: auto;
+}
+
+.platform-group.is-website .platform-grid figure:first-child,
+.platform-group.is-website .platform-grid figure:nth-child(2) {
+  grid-column: auto;
+}
+
+.platform-group.is-website .platform-grid figure:nth-child(-n + 4) {
+  grid-column: auto;
+}
+
+.platform-group.is-website .platform-grid figure:nth-child(5),
+.platform-group.is-website .platform-grid figure:nth-child(6) {
+  grid-column: 1 / -1;
+  width: min(78%, 980px);
+}
+
+.platform-group.is-website .platform-grid figure:nth-child(6) {
+  margin-left: auto;
+}
+
+@media (max-width: 700px) {
+  dialog[data-case="shen"] .case-intro {
+    min-height: 510px;
+    padding-top: 38px;
+  }
+
+  dialog[data-case="shen"] .case-intro h2 {
+    font-size: 17vw;
+    line-height: .86;
+    white-space: normal;
+  }
+
+  dialog[data-case="shen"] .case-summary {
+    margin-top: 76px;
+    font-size: 31px;
+  }
+
+  .case-highlights {
+    grid-template-columns: 1fr;
+  }
+
+  .case-highlights article,
+  .case-highlights article + article {
+    min-height: 0;
+    padding: 18px 0;
+    border-right: 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .case-highlights article:last-child {
+    border-bottom: 0;
+  }
+
+  .case-highlights p {
+    margin-top: 9px;
+  }
+
+  .delivery-index-heading {
+    display: block;
+    margin-bottom: 24px;
+  }
+
+  .delivery-index-heading span {
+    display: block;
+    margin-top: 14px;
+  }
+
+  .delivery-index ol {
+    grid-template-columns: 1fr;
+  }
+
+  .delivery-index li + li {
+    border-top: 1px solid var(--rule);
+    border-left: 0;
+  }
+
+  .delivery-index a {
+    min-height: 160px;
+    padding: 16px 0;
+  }
+
+  .delivery-index strong {
+    font-size: 29px;
+  }
+
+  .platform-group.is-toc .platform-grid,
+  .platform-group.is-backend .platform-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .platform-group.is-toc .platform-grid figure:nth-child(odd),
+  .platform-group.is-backend .platform-grid figure:nth-child(even) {
+    margin-top: 0;
+  }
+
+  .platform-collection > header {
+    display: block;
+  }
+
+  .platform-collection p {
+    margin-top: 10px;
+  }
+
+  .platform-group.is-toc .platform-collection .platform-grid {
+    grid-auto-columns: clamp(112px, 36vw, 148px);
+    grid-template-columns: none;
+  }
+
+  .platform-group.is-toc .platform-collection:nth-child(2) .platform-grid {
+    grid-auto-columns: minmax(300px, 88vw);
+  }
+
+  .platform-group.is-website .platform-grid figure:nth-child(5),
+  .platform-group.is-website .platform-grid figure:nth-child(6) {
+    grid-column: auto;
+    width: 100%;
+  }
+}
+
+/* Type spacing pass: preserve the editorial density while keeping CJK titles breathable. */
+body {
+  letter-spacing: -.012em;
+}
+
+.project-meta h3,
+.experience-list h3,
+.services-grid h3,
+.about-copy,
+.contact h2,
+.case-method h3,
+.platform-group h3,
+.delivery-index-heading p,
+.delivery-index strong,
+.platform-collection h4,
+.case-highlights strong {
+  letter-spacing: -.04em;
+}
+
+dialog[data-case="shen"] .case-intro h2 {
+  font-size: clamp(72px, 8.35vw, 150px);
+  font-weight: 500;
+  line-height: .98;
+  letter-spacing: -.028em;
+  word-spacing: .08em;
+}
+
+dialog[data-case="shen"] .case-summary,
+dialog[data-case="shen"] .case-body,
+.case-method-grid p:not(.case-method-label),
+.platform-group > header p,
+.platform-copy a,
+.case-highlights p {
+  letter-spacing: -.018em;
+}
+
+.case-method h3,
+.platform-group h3 {
+  line-height: .98;
+}
+
+/* PC workbench captures use the same calm two-column rhythm as the backend screens. */
+.platform-group.is-toc .platform-collection:nth-child(2) .platform-grid {
+  display: grid;
+  grid-auto-flow: row;
+  grid-auto-columns: auto;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(30px, 4vw, 64px) 2vw;
+  overflow: visible;
+  overscroll-behavior-inline: auto;
+  scroll-snap-type: none;
+  touch-action: auto;
+  padding-bottom: 0;
+}
+
+@media (max-width: 700px) {
+  dialog[data-case="shen"] .case-intro h2 {
+    font-size: 17vw;
+    line-height: 1;
+    letter-spacing: -.025em;
+  }
+
+  .platform-group.is-toc .platform-collection:nth-child(2) .platform-grid {
+    grid-template-columns: 1fr;
+  }
+}

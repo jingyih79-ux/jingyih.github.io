@@ -12,45 +12,71 @@
     <link rel="stylesheet" href="/src/concepts.css" />
     <link rel="stylesheet" href="/src/platforms.css" />
     <link rel="stylesheet" href="/src/hero.css" />
+    <link rel="stylesheet" href="/src/work.css" />
+    <link rel="stylesheet" href="/src/case-detail.css" />
     <style>dialog { inset: 0; max-width: none; margin: 0; } dialog:focus { outline: none; }</style>
   </head>
   <body>
     <div class="site-loader" aria-hidden="true"><span>黄静仪作品集</span></div>
     <div class="cursor-dot" aria-hidden="true"></div>
     <header class="site-header" id="top">
-      <a class="brand" href="#top" aria-label="回到顶部">JH<span>®</span></a>
+      <a class="brand" href="#top" aria-label="回到顶部">黄静仪<span>®</span></a>
       <nav aria-label="主导航">
-        <a href="#work">作品</a>
+        <a href="#top">首页</a>
         <a href="#about">关于</a>
+        <a href="#work">作品 (5)</a>
+        <a href="#experience">经历</a>
         <a href="#contact">联系</a>
       </nav>
-      <span class="header-status">现正开放机会</span>
+      <button class="header-status menu-trigger" type="button" aria-expanded="false" aria-controls="site-menu">菜单</button>
     </header>
 
-    <main>
-      <section class="hero section-rule" aria-labelledby="hero-title">
-        <p class="eyebrow reveal">作品集 / 2026</p>
-        <h1 id="hero-title" class="hero-title"><span>我是黄静仪</span><span class="title-light">UI/UX 设计师</span></h1>
-        <div class="hero-bottom">
-          <div class="hero-profile reveal">
-            <p><span>毕业院校</span><strong>悉尼大学</strong></p>
-            <p><span>专业</span><strong>交互设计与电子艺术硕士</strong></p>
-            <p><span>联系方式</span><strong><a href="mailto:jingyih8908@outlook.com">jingyih8908@outlook.com</a><a href="tel:15367918908">153 6791 8908</a></strong></p>
-          </div>
-          <div class="hero-cta">
-            <p class="hero-intro reveal">专注于 ToB / ToC 多端产品体验与品牌视觉，具备从信息架构、交互界面到组件规范与研发协同的端到端设计能力。</p>
-            <a class="scroll-link reveal" href="#work">查看作品 <i>↓</i></a>
-          </div>
+    <div class="menu-overlay" id="site-menu" aria-hidden="true">
+      <button class="menu-backdrop" type="button" aria-label="关闭菜单"></button>
+      <aside class="site-menu-panel" aria-label="网站菜单">
+        <button class="menu-close" type="button">关闭</button>
+        <nav class="menu-links" aria-label="菜单导航">
+          <a href="#top">首页</a>
+          <a href="#about">关于我</a>
+          <a href="#work">作品集 <span>(5)</span></a>
+          <a href="#experience">工作经历</a>
+          <a href="#contact">联系</a>
+        </nav>
+        <div class="menu-contact-card">
+          <p>有项目想聊聊？</p>
+          <a href="mailto:jingyih8908@outlook.com">发邮件给我 <span>↗</span></a>
         </div>
+        <p class="menu-credit">深圳 · 2026<br />黄静仪作品集</p>
+      </aside>
+    </div>
+
+    <main>
+      <section class="hero mono-hero section-rule" aria-labelledby="hero-title">
+        <ul class="hero-services reveal" aria-label="设计能力">
+          <li>产品策略</li>
+          <li>交互设计</li>
+          <li>界面体验</li>
+          <li>设计系统</li>
+          <li>品牌视觉</li>
+        </ul>
+        <div class="hero-cta reveal">
+          <p>用清晰的业务结构和一致的多端体验，让复杂产品成为用户愿意使用的日常工具。</p>
+          <a class="hero-contact" href="#contact">一起聊聊 <span>↗</span></a>
+        </div>
+        <p class="hero-credit"><a href="tel:15367918908">153 6791 8908</a><span>© 2026 黄静仪作品集</span></p>
+        <h1 id="hero-title" class="hero-title"><span>黄静仪</span><span>产品设计师</span></h1>
       </section>
 
       <section class="work section-rule" id="work" aria-labelledby="work-title">
-        <div class="section-heading reveal"><h2 id="work-title">精选作品</h2><span>(01—05)</span></div>
+        <div class="work-rail">
+          <p class="work-kicker">作品集 / 2026</p>
+          <div class="section-heading reveal"><h2 id="work-title">作品</h2><span>(5)</span></div>
+        </div>
         <div class="project-list">
           <a class="project project-shen reveal" href="#case-study" data-case="shen">
             <span class="project-number">01</span>
             <div class="project-media"><img src="./images/covers/shen-ai-digital-employee.jpg" alt="沈管家 AI 数字员工项目封面"></div>
-            <div class="project-meta"><h3>沈管家 AI 数字员工</h3><p>产品设计 · 官网 / App / PC</p></div>
+            <div class="project-meta"><h3>沈管家 AI 数字员工</h3><p>产品设计 · ToC / ToB / Web</p></div>
             <span class="project-arrow">↗</span>
           </a>
           <a class="project project-two reveal" href="#case-study" data-case="little-e">
@@ -61,19 +87,19 @@
           </a>
           <a class="project project-three reveal" href="#case-study" data-case="xunlei">
             <span class="project-number">03</span>
-            <div class="project-media"><img src="./images/projects/page-22.png" alt="迅雷云盘用户体验优化界面展示"></div>
+            <div class="project-media"><img src="./images/covers/xunlei.jpeg" alt="迅雷云盘用户体验优化项目封面"></div>
             <div class="project-meta"><h3>迅雷云盘 - 用户体验优化</h3><p>用户体验优化 · 文件管理 / 会员体验</p></div>
             <span class="project-arrow">↗</span>
           </a>
           <a class="project project-four reveal" href="#case-study" data-case="first-scene">
             <span class="project-number">04</span>
-            <div class="project-media"><img src="./images/projects/page-52.png" alt="第一现场 APP 活动体验展示"></div>
+            <div class="project-media"><img src="./images/covers/first-scene.jpeg" alt="第一现场 APP 项目封面"></div>
             <div class="project-meta"><h3>第一现场 APP</h3><p>互动体验 · Web / H5 设计</p></div>
             <span class="project-arrow">↗</span>
           </a>
           <a class="project project-five reveal" href="#case-study" data-case="concepts">
             <span class="project-number">05</span>
-            <div class="project-media"><img src="./images/covers/concepts.jpg" alt="概念性作品项目封面"></div>
+            <div class="project-media"><img src="./images/covers/concepts.jpeg" alt="概念性作品项目封面"></div>
             <div class="project-meta"><h3>其他概念性作品</h3><p>概念设计 · 交互体验</p></div>
             <span class="project-arrow">↗</span>
           </a>
@@ -82,7 +108,7 @@
 
       <section class="about section-rule" id="about" aria-labelledby="about-title">
         <div class="section-heading reveal"><h2 id="about-title">关于我</h2><span>(02)</span></div>
-        <p class="about-copy reveal">从产品文档到多端落地，独立完成沈管家 App 458 页、PC 584 页及四大后台系统；通过 AI 辅助需求梳理、方向探索与组件规范搭建，实现高效、一致的全平台交付。</p>
+        <p class="about-copy reveal">具备海外交互设计教育背景的 AI 产品设计师，独立完成 0-1 AI 产品全平台设计，覆盖 ToB / ToC 多端产品从定义、用户体验、视觉设计到上线落地。关注用户动机、边缘场景和开发边界，擅长以 AI 工具推动快速探索、交付与迭代。</p>
         <div class="about-grid">
           <p><strong>全平台交付</strong><br />App 458 页<br />PC 584 页<br />四大后台系统</p>
           <p><strong>产品设计</strong><br />交互设计 · 信息架构<br />多端适配 · 设计系统<br />品牌视觉 · 界面动效</p>
@@ -91,7 +117,7 @@
         </div>
       </section>
 
-      <section class="experience section-rule" aria-labelledby="experience-title">
+      <section class="experience section-rule" id="experience" aria-labelledby="experience-title">
         <div class="section-heading reveal"><h2 id="experience-title">工作经历</h2><span>(03)</span></div>
         <div class="experience-list">
           <article class="reveal"><p>2025.11 — 至今</p><div><h3>UI 设计师 · 沈管家 AI 数字员工</h3><span>深圳华资天下科技有限公司（深圳四通集团旗下）</span></div><em>负责 ToB / ToC 全场景的界面与交互设计，覆盖 App、PC 及四大后台系统；搭建设计规范与组件库，并完成品牌识别、IP、图标及发布物料。</em></article>
@@ -120,29 +146,42 @@
 
     <dialog id="case-study" aria-labelledby="case-title" tabindex="-1">
       <header class="case-topbar">
-        <button class="case-brand dialog-close" aria-label="关闭案例详情">黄静仪</button>
+        <button class="case-brand dialog-close" aria-label="关闭案例详情">JH<span>®</span></button>
         <span>作品详情</span>
         <button class="dialog-close" aria-label="关闭案例详情">返回作品 ↖</button>
       </header>
-      <section class="case-intro">
-        <div>
-          <p class="eyebrow case-kicker">案例结构</p>
-          <h2 id="case-title">项目</h2>
-        </div>
-        <p class="case-summary">此处将承载完整的案例叙事。</p>
-      </section>
-      <div class="case-action"><span>项目案例 / 2026</span><span>向下浏览 ↓</span></div>
-      <div class="case-cover"></div>
-      <section class="case-story">
-        <div class="case-body"></div>
-        <div class="case-facts"></div>
-        <div class="case-tags"></div>
-      </section>
-      <div class="case-gallery"></div>
+      <div class="case-detail-layout">
+        <aside class="case-sidebar">
+          <div class="case-sidebar-opening">
+            <section class="case-intro">
+              <p class="eyebrow case-kicker">案例结构</p>
+              <h2 id="case-title">项目</h2>
+            </section>
+            <div class="case-sidebar-facts">
+              <div class="case-facts"></div>
+              <div class="case-tags"></div>
+            </div>
+          </div>
+          <div class="case-body"></div>
+          <div class="case-detail-notes"></div>
+          <div class="case-chapter-experience" hidden></div>
+          <div class="case-action"><span>项目案例 / 2026</span><span>向下浏览 ↓</span></div>
+        </aside>
+        <main class="case-visual-column">
+          <p class="case-summary">此处将承载完整的案例叙事。</p>
+          <div class="case-cover"></div>
+          <div class="case-gallery"></div>
+        </main>
+      </div>
       <footer class="case-footer">
         <span>© 2026 黄静仪</span>
         <button class="dialog-close">返回作品 ↑</button>
       </footer>
+    </dialog>
+    <dialog class="image-lightbox" id="image-lightbox" aria-label="图片全屏预览">
+      <button class="image-lightbox-close" type="button" aria-label="关闭图片预览">关闭</button>
+      <img src="" alt="" />
+      <p></p>
     </dialog>
     <script type="module" src="/src/main.js"></script>
   </body>
