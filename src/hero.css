@@ -632,3 +632,201 @@ nav a,
     border-radius: 14px;
   }
 }
+
+/* Mobile homepage: a calm two-column Swiss grid with a single profile narrative. */
+.mobile-profile-intro {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .site-header {
+    position: relative;
+    height: 122px;
+    padding: 0 8.5%;
+    border-bottom: 1px solid rgba(17, 17, 17, .08);
+    background-color: var(--paper);
+    background-image:
+      linear-gradient(to right, transparent calc(10% - .5px), rgba(17, 17, 17, .08) calc(10% - .5px), rgba(17, 17, 17, .08) calc(10% + .5px), transparent calc(10% + .5px)),
+      linear-gradient(to right, transparent calc(50% - .5px), rgba(17, 17, 17, .08) calc(50% - .5px), rgba(17, 17, 17, .08) calc(50% + .5px), transparent calc(50% + .5px)),
+      linear-gradient(to right, transparent calc(90% - .5px), rgba(17, 17, 17, .08) calc(90% - .5px), rgba(17, 17, 17, .08) calc(90% + .5px), transparent calc(90% + .5px));
+    backdrop-filter: none;
+  }
+
+  .site-header .brand {
+    font-size: clamp(29px, 8.4vw, 36px);
+    font-weight: 600;
+    letter-spacing: -.08em;
+  }
+
+  .site-header .brand span {
+    font-size: .34em;
+    margin-left: 5px;
+  }
+
+  .site-header .header-status {
+    display: block;
+    width: 29px;
+    height: 34px;
+    min-width: 0;
+    overflow: hidden;
+    color: transparent;
+    background: radial-gradient(circle, var(--ink) 38%, transparent 43%) 0 0 / 10px 11px;
+    font-size: 0;
+  }
+
+  .mono-hero {
+    min-height: 0;
+    padding: 0;
+    overflow: visible;
+    background-color: var(--paper);
+    background-image:
+      linear-gradient(to right, transparent calc(10% - .5px), rgba(17, 17, 17, .08) calc(10% - .5px), rgba(17, 17, 17, .08) calc(10% + .5px), transparent calc(10% + .5px)),
+      linear-gradient(to right, transparent calc(50% - .5px), rgba(17, 17, 17, .08) calc(50% - .5px), rgba(17, 17, 17, .08) calc(50% + .5px), transparent calc(50% + .5px)),
+      linear-gradient(to right, transparent calc(90% - .5px), rgba(17, 17, 17, .08) calc(90% - .5px), rgba(17, 17, 17, .08) calc(90% + .5px), transparent calc(90% + .5px));
+  }
+
+  .mono-hero .hero-services,
+  .mono-hero .hero-cta,
+  .mono-hero .hero-credit,
+  .mono-hero .hero-title {
+    display: none;
+  }
+
+  .mobile-profile-intro {
+    display: block;
+    padding: 62px 15% 62px;
+  }
+
+  .mobile-profile-intro img {
+    display: block;
+    width: min(39vw, 164px);
+    aspect-ratio: 1;
+    margin: 0 0 42px;
+    object-fit: cover;
+    object-position: 56% center;
+    filter: grayscale(.94) contrast(1.04);
+  }
+
+  .mobile-availability {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin: 0 0 32px;
+    color: #777;
+    font-size: clamp(17px, 5.2vw, 22px);
+    line-height: 1;
+    letter-spacing: -.04em;
+  }
+
+  .mobile-availability span {
+    width: 13px;
+    height: 13px;
+    border: 4px solid #d7d7d7;
+    border-radius: 50%;
+    background: var(--ink);
+    box-shadow: 0 0 0 1px #777;
+  }
+
+  .mobile-profile-intro h2 {
+    margin: 0;
+    font-size: clamp(42px, 12vw, 52px);
+    font-weight: 600;
+    line-height: .98;
+    letter-spacing: -.09em;
+  }
+
+  .mobile-role {
+    margin: 13px 0 0;
+    color: #777;
+    font-size: clamp(19px, 5.9vw, 25px);
+    line-height: 1.1;
+    letter-spacing: -.045em;
+  }
+
+  .mobile-bio {
+    margin: 76px 0 0;
+    color: #666;
+    font-size: clamp(22px, 6.4vw, 29px);
+    font-weight: 400;
+    line-height: 1.48;
+    letter-spacing: -.055em;
+  }
+
+  .mobile-phone {
+    display: flex;
+    gap: 28px;
+    margin: 68px 0 0;
+    font-size: clamp(18px, 5.3vw, 23px);
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -.035em;
+  }
+
+  .mobile-phone a {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .mobile-work-kicker {
+    margin: 124px 0 0;
+    color: #747474;
+    font-size: clamp(21px, 6.2vw, 27px);
+    line-height: 1;
+    letter-spacing: -.055em;
+  }
+
+  .work {
+    padding: 0 8.5% 62px;
+    background-color: var(--paper);
+    background-image:
+      linear-gradient(to right, transparent calc(10% - .5px), rgba(17, 17, 17, .08) calc(10% - .5px), rgba(17, 17, 17, .08) calc(10% + .5px), transparent calc(10% + .5px)),
+      linear-gradient(to right, transparent calc(50% - .5px), rgba(17, 17, 17, .08) calc(50% - .5px), rgba(17, 17, 17, .08) calc(50% + .5px), transparent calc(50% + .5px)),
+      linear-gradient(to right, transparent calc(90% - .5px), rgba(17, 17, 17, .08) calc(90% - .5px), rgba(17, 17, 17, .08) calc(90% + .5px), transparent calc(90% + .5px));
+  }
+
+  .work .work-rail {
+    display: none;
+  }
+
+  .project-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .project {
+    display: block;
+    min-width: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  .project:last-child {
+    border: 0;
+  }
+
+  .project-number,
+  .project-arrow,
+  .project-meta p {
+    display: none;
+  }
+
+  .project-media {
+    display: block;
+    height: 31vw;
+    margin: 0;
+    transform: none;
+    border-radius: 0;
+  }
+
+  .project-meta {
+    margin-top: 9px;
+  }
+
+  .project-meta h3,
+  .project-shen .project-meta h3 {
+    margin: 0;
+    font-size: clamp(16px, 4.7vw, 20px);
+    line-height: 1.12;
+    white-space: normal;
+  }
+}
