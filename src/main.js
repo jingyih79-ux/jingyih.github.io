@@ -26,6 +26,14 @@ const resetInterfaceScroll = () => {
 
 if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
 
+// Refreshing from a case-study anchor should always return to the portfolio home.
+// replaceState keeps the browser history clean while preventing anchor restoration.
+const resetToHomeOnLoad = () => {
+  const homeUrl = `${window.location.pathname}${window.location.search}#top`;
+  if (window.location.hash !== '#top') history.replaceState(null, '', homeUrl);
+  resetInterfaceScroll();
+};
+
 const syncCaseOpeningAlignment = () => {
   if (!dialog.open || window.innerWidth <= 700) {
     caseSidebarOpening.style.removeProperty('min-height');
@@ -610,8 +618,8 @@ window.addEventListener('pointermove', (event) => {
 });
 
 window.addEventListener('load', () => {
-  resetInterfaceScroll();
+  resetToHomeOnLoad();
   window.setTimeout(() => document.body.classList.add('is-loaded'), 350);
 });
 
-window.addEventListener('pageshow', resetInterfaceScroll);
+window.addEventListener('pageshow', resetToHomeOnLoad);
