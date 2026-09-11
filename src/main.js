@@ -12,6 +12,7 @@ const caseDetailNotes = document.querySelector('.case-detail-notes');
 const caseChapterExperience = document.querySelector('.case-chapter-experience');
 const caseSidebarOpening = document.querySelector('.case-sidebar-opening');
 const caseVisualColumn = document.querySelector('.case-visual-column');
+const caseMobileFlow = document.querySelector('.case-mobile-flow');
 const imageLightbox = document.querySelector('#image-lightbox');
 const imageLightboxImage = imageLightbox.querySelector('img');
 const imageLightboxCaption = imageLightbox.querySelector('p');
@@ -426,6 +427,83 @@ const renderChapterExperience = (selectedCase) => {
     </nav>`;
 };
 
+const getMobileChapterMedia = (selectedCase, chapterId) => (selectedCase.platforms || []).flatMap((platform) => {
+  if (platform.collections) {
+    return platform.collections
+      .filter((collection) => collection.chapterId === chapterId)
+      .map((collection) => ({ label: collection.title, images: collection.images }));
+  }
+  return platform.chapterId === chapterId
+    ? [{ label: platform.type, images: platform.images }]
+    : [];
+});
+
+const renderMobileImageSet = (groups) => groups.map((group) => `
+  <div class="mobile-case-image-set">
+    ${group.label ? `<p>${group.label}</p>` : ''}
+    <div class="mobile-case-images">${group.images.map((image) => `
+      <figure>
+        <img src="${image.src || image}" alt="${image.label || group.label || '作品界面'}" loading="lazy">
+        ${image.label ? `<figcaption>${image.label}</figcaption>` : ''}
+      </figure>`).join('')}</div>
+  </div>`).join('');
+
+const renderMobileDirectory = (selectedCase) => {
+  if (!selectedCase.chapterNavigation) return '';
+  return `<nav class="mobile-case-directory" aria-label="项目目录">
+    <p>项目目录</p>
+    ${selectedCase.chapterNavigation.map((item) => `
+      <a href="#mobile-case-media-${item.target || item.children[0][0]}" data-mobile-chapter-link="${item.target || item.children[0][0]}">
+        <span>${item.index}</span><strong>${item.label}</strong>
+      </a>
+      ${item.children ? `<div>${item.children.map(([id, label]) => `<a href="#mobile-case-media-${id}" data-mobile-chapter-link="${id}">${label}</a>`).join('')}</div>` : ''}
+    `).join('')}
+  </nav>`;
+};
+
+const renderMobileCaseFlow = (selectedCase) => {
+  const openingImage = selectedCase.openingImage || selectedCase.images?.[0];
+  const detailNotes = selectedCase.detailSections
+    ? selectedCase.detailSections.map(([title, content]) => {
+      const copy = Array.isArray(content)
+        ? `<div>${content.map((paragraph) => `<p>${paragraph}</p>`).join('')}</div>`
+        : `<p>${content}</p>`;
+      return `<section class="mobile-case-copy"><h3>${title}</h3>${copy}</section>`;
+    }).join('')
+    : selectedCase.body ? `<section class="mobile-case-copy"><h3>设计说明</h3><p>${selectedCase.body}</p></section>` : '';
+  const chapterFlow = selectedCase.chapterSections
+    ? selectedCase.chapterSections.map((chapter) => `
+      <section class="mobile-case-chapter" id="mobile-case-media-${chapter.id}">
+        <div class="mobile-case-chapter-copy">
+          <p><span>${chapter.index}</span>${chapter.eyebrow}</p>
+          <h3>${chapter.title}</h3>
+          ${chapter.paragraphs.map((paragraph) => `<p>${paragraph}</p>`).join('')}
+          <div><span>设计重点</span><p>${chapter.focus.join(' · ')}</p></div>
+          ${chapter.id === 'website' && selectedCase.projectLink ? `<a href="${selectedCase.projectLink.href}" target="_blank" rel="noreferrer">${selectedCase.projectLink.label}</a>` : ''}
+        </div>
+        ${renderMobileImageSet(getMobileChapterMedia(selectedCase, chapter.id))}
+      </section>`).join('')
+    : renderMobileImageSet([{
+      label: '项目界面',
+      images: selectedCase.openingImage ? (selectedCase.images || []) : (selectedCase.images || []).slice(1)
+    }]);
+  return `
+    <section class="mobile-case-opening">
+      <p class="mobile-case-kicker">${selectedCase.kicker}</p>
+      <h2>${selectedCase.titleHtml || selectedCase.title}</h2>
+      ${openingImage ? `<img src="${openingImage}" alt="${selectedCase.title} 项目封面">` : ''}
+    </section>
+    <section class="mobile-case-introduction">
+      <h3>项目介绍</h3>
+      <p>${selectedCase.summary}</p>
+      <dl>${selectedCase.facts.map(([label, value]) => `<div><dt>${label}</dt><dd>${value}</dd></div>`).join('')}</dl>
+      <div class="mobile-case-tags"><span>项目特点</span><p>${selectedCase.tags.join('，')}</p></div>
+    </section>
+    ${detailNotes}
+    ${renderMobileDirectory(selectedCase)}
+    <div class="mobile-case-chapters">${chapterFlow}</div>`;
+};
+
 const setActiveCaseChapter = (chapterId) => {
   if (!chapterId) return;
   caseChapterExperience.querySelectorAll('[data-chapter-copy]').forEach((item) => {
@@ -473,6 +551,13 @@ caseChapterExperience.addEventListener('click', (event) => {
   event.preventDefault();
   const target = dialog.querySelector(`#case-media-${link.dataset.chapterLink}`);
   target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
+
+caseMobileFlow.addEventListener('click', (event) => {
+  const link = event.target.closest('[data-mobile-chapter-link]');
+  if (!link) return;
+  event.preventDefault();
+  dialog.querySelector(`#mobile-case-media-${link.dataset.mobileChapterLink}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
 
 document.querySelectorAll('.project').forEach((project) => {
@@ -543,6 +628,8 @@ document.querySelectorAll('.project').forEach((project) => {
       const galleryImages = selectedCase.openingImage ? selectedCase.images : selectedCase.images.slice(1);
       caseGallery.innerHTML = galleryImages.map((src) => `<img class="case-panel" src="${src}" alt="${selectedCase.title} 项目页面" loading="lazy">`).join('');
     }
+    caseMobileFlow.innerHTML = renderMobileCaseFlow(selectedCase);
+    caseMobileFlow.hidden = false;
     dialog.showModal();
     dialog.focus({ preventScroll: true });
     resetInterfaceScroll();
@@ -560,7 +647,7 @@ document.querySelectorAll('.dialog-close').forEach((button) => button.addEventLi
 }));
 
 dialog.addEventListener('click', (event) => {
-  const image = event.target.closest('.case-visual-column img');
+  const image = event.target.closest('.case-visual-column img, .case-mobile-flow img');
   if (!image) return;
   event.preventDefault();
   imageLightboxImage.src = image.currentSrc || image.src;
