@@ -612,3 +612,237 @@ dialog[data-case="little-e"] .platform-group > header div > p:first-child {
   dialog[data-case="little-e"] .platform-grid { grid-template-columns: 1fr; }
   .case-sidebar .case-action { display: flex; }
 }
+
+/* Mobile case studies use a single reading column: context, copy, then its media. */
+.case-mobile-flow { display: none; }
+
+@media (max-width: 700px) {
+  .case-detail-layout {
+    display: none;
+  }
+
+  .case-mobile-flow:not([hidden]) {
+    display: block;
+    padding: 0 18px 66px;
+  }
+
+  .mobile-case-opening {
+    padding: 42px 0 48px;
+  }
+
+  .mobile-case-kicker {
+    margin: 0 0 28px;
+    color: #777;
+    font-size: 12px;
+    line-height: 1.4;
+    letter-spacing: -.015em;
+  }
+
+  .mobile-case-opening h2 {
+    margin: 0 0 36px;
+    color: #111;
+    font-size: clamp(42px, 13vw, 58px);
+    font-weight: 600;
+    line-height: .96;
+    letter-spacing: -.085em;
+  }
+
+  .mobile-case-opening > img {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: #fff;
+    cursor: zoom-in;
+  }
+
+  .mobile-case-introduction,
+  .mobile-case-copy,
+  .mobile-case-directory,
+  .mobile-case-chapter {
+    padding: 39px 0 42px;
+    border-top: 1px solid rgba(17, 17, 17, .14);
+  }
+
+  .mobile-case-introduction h3,
+  .mobile-case-copy h3,
+  .mobile-case-chapter h3 {
+    margin: 0 0 17px;
+    color: #111;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -.06em;
+  }
+
+  .mobile-case-introduction > p,
+  .mobile-case-copy p,
+  .mobile-case-chapter-copy > p {
+    margin: 0;
+    color: #666;
+    font-size: 15px;
+    line-height: 1.66;
+    letter-spacing: -.026em;
+  }
+
+  .mobile-case-copy > div {
+    display: grid;
+    gap: 13px;
+  }
+
+  .mobile-case-introduction dl {
+    display: grid;
+    gap: 13px;
+    margin: 31px 0 0;
+    padding: 0;
+  }
+
+  .mobile-case-introduction dl div,
+  .mobile-case-tags {
+    display: grid;
+    grid-template-columns: 32% minmax(0, 1fr);
+    gap: 12px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .mobile-case-introduction dt,
+  .mobile-case-tags > span {
+    color: #898989;
+  }
+
+  .mobile-case-introduction dd,
+  .mobile-case-tags p {
+    margin: 0;
+    color: #222;
+  }
+
+  .mobile-case-tags {
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(17, 17, 17, .1);
+  }
+
+  .mobile-case-directory {
+    display: grid;
+    gap: 0;
+  }
+
+  .mobile-case-directory > p {
+    margin: 0 0 17px;
+    color: #898989;
+    font-size: 12px;
+    line-height: 1.35;
+  }
+
+  .mobile-case-directory > a {
+    display: grid;
+    grid-template-columns: 31px minmax(0, 1fr);
+    gap: 10px;
+    padding: 11px 0;
+    color: #222;
+    font-size: 14px;
+    line-height: 1.35;
+  }
+
+  .mobile-case-directory > a span {
+    color: #8c8c8c;
+    font-size: 12px;
+  }
+
+  .mobile-case-directory > a strong { font-weight: 500; }
+
+  .mobile-case-directory > div {
+    display: grid;
+    gap: 8px;
+    padding: 0 0 12px 41px;
+  }
+
+  .mobile-case-directory > div a {
+    color: #777;
+    font-size: 13px;
+    line-height: 1.35;
+  }
+
+  .mobile-case-chapter {
+    scroll-margin-top: 76px;
+  }
+
+  .mobile-case-chapter-copy > p:first-child {
+    display: flex;
+    gap: 11px;
+    margin-bottom: 16px;
+    color: #818181;
+    font-size: 12px;
+    line-height: 1.35;
+  }
+
+  .mobile-case-chapter-copy > p:first-child span {
+    color: #aaa;
+  }
+
+  .mobile-case-chapter-copy > p + p {
+    margin-top: 12px;
+  }
+
+  .mobile-case-chapter-copy > div {
+    margin-top: 22px;
+  }
+
+  .mobile-case-chapter-copy > div > span {
+    display: block;
+    margin-bottom: 7px;
+    color: #909090;
+    font-size: 11px;
+  }
+
+  .mobile-case-chapter-copy > div > p {
+    margin: 0;
+    color: #333;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .mobile-case-chapter-copy > a {
+    display: inline-block;
+    margin-top: 22px;
+    padding-bottom: 3px;
+    border-bottom: 1px solid #111;
+    color: #111;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .mobile-case-image-set {
+    margin-top: 32px;
+  }
+
+  .mobile-case-image-set > p {
+    margin: 0 0 12px;
+    color: #777;
+    font-size: 12px;
+    line-height: 1.35;
+  }
+
+  .mobile-case-images {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .mobile-case-images figure { margin: 0; }
+
+  .mobile-case-images img {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: #fff;
+    cursor: zoom-in;
+  }
+
+  .mobile-case-images figcaption {
+    margin-top: 8px;
+    color: #777;
+    font-size: 12px;
+    line-height: 1.35;
+  }
+}
